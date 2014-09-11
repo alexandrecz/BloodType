@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-us" Name="englishCommands">
+    <CommandPrefix>BloodType</CommandPrefix>
+    <Example> Find or Set up your blood type </Example>
+
+    <Command Name="BTFind">
+      <Example> Find out my blood type </Example>
+      <ListenFor> [Find] {naturalLanguage} </ListenFor>
+      <Feedback> Finding your blood type... </Feedback>
+      <Navigate Target="/Views/FindView.xaml" />
+    </Command>
+    <Command Name="BTSet">
+      <Example> Set up my type 'A, O, AB negative, etc...' </Example>
+      <ListenFor> [Set] {setnaturalLanguage} {type} </ListenFor>
+      <Feedback> Setting up your blood type... </Feedback>
+      <Navigate Target="/Views/SetTypeView.xaml" />
+    </Command>
+
+    <PhraseList Label="type">
+      <Item> A </Item>
+      <Item> A negative </Item>
+      <Item> B </Item>
+      <Item> B negative </Item>
+      <Item> AB </Item>
+      <Item> AB negative </Item>
+      <Item> O </Item>
+      <Item> O negative </Item>
+    </PhraseList>
+
+    <PhraseTopic Label="setnaturalLanguage" Scenario="Natural Language">
+      <Subject> set up my type </Subject>
+    </PhraseTopic>
+
+    <PhraseTopic Label="naturalLanguage" Scenario="Natural Language">
+      <Subject> find my blood type </Subject>
+    </PhraseTopic>
+  </CommandSet>
+</VoiceCommands>
